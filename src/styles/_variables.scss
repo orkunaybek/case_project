@@ -1,0 +1,32 @@
+$palette-font-sizes: (
+  'font-size-1': 14px,
+  'font-size-2': 18px,
+  'font-size-3': 35px,
+);
+
+$palette-colors: (
+  'white-100': #ffffff,
+  'grey-10': #f8f9f9,
+  'grey-15': #b4c2d3b4,
+  'grey-20': #b4c2d3,
+);
+
+$main-shadow: rgba(0,0,0,0.05) 0 1px 5px;
+
+@function palette-font-size($key) {
+  @return map-get($palette-font-sizes, $key);
+}
+
+@function palette-font-size-level($level) {
+  $font-size: palette-font-size('font-size-' + $level);
+  @return $font-size;
+}
+
+@function palette-color($key) {
+  @return map-get($palette-colors, $key);
+}
+
+@function palette-color-level($color-name, $level) {
+  $color: palette-color($color-name + '-' + $level);
+  @return $color;
+}
