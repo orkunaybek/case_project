@@ -3,32 +3,23 @@
     <Header />
     <div class="main container">
       <slot />
-      <!-- <Modal
-        v-if="modal.show"
-        :title="modal.title"
-        @closed="closedModal"
-      /> -->
     </div>
+    <LoginModal />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-// import Modal from '@/components/Modal';
+import LoginModal from '@/components/LoginModal';
 
 export default {
   name: 'MainLayout',
   components: {
     Header,
-    // Modal,
+    LoginModal,
   },
   data() {
-    return {
-      modal: {
-        title: 'Login',
-        show: true,
-      },
-    };
+    return {};
   },
 };
 </script>

@@ -1,7 +1,13 @@
 export const DefaultState = () => {
-    return {
-        language: 'en',
-        userInfo: null,
-    };
+  return {
+    language: 'en',
+    userInfo: {
+      name: '',
+      email: '',
+      password: '',
+    },
+    modals: {
+      loginModal: false,
+    },
   };
-  
+};

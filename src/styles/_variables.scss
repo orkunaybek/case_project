@@ -5,13 +5,11 @@ $palette-font-sizes: (
 );
 
 $palette-colors: (
-  'white-100': #ffffff,
-  'grey-10': #f8f9f9,
-  'grey-15': #b4c2d3b4,
-  'grey-20': #b4c2d3,
+  'green': #41b883,
+  'blue': #34495e,
 );
 
-$main-shadow: rgba(0,0,0,0.05) 0 1px 5px;
+$main-shadow: rgba(0, 0, 0, 0.05) 0 1px 5px;
 
 @function palette-font-size($key) {
   @return map-get($palette-font-sizes, $key);
@@ -22,11 +20,11 @@ $main-shadow: rgba(0,0,0,0.05) 0 1px 5px;
   @return $font-size;
 }
 
-@function palette-color($key) {
+@function palette-colors($key) {
   @return map-get($palette-colors, $key);
 }
 
-@function palette-color-level($color-name, $level) {
-  $color: palette-color($color-name + '-' + $level);
+@function palette-color($color-name) {
+  $color: palette-colors($color-name);
   @return $color;
 }

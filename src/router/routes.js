@@ -5,12 +5,14 @@ export const routes = [
   {
     title: 'Home',
     key: 'home',
+    name: 'home',
     path: '/',
     component: load('Home'),
   },
   {
     title: 'Contact',
     key: 'contact',
+    name: 'contact',
     path: '/contact',
     component: load('Contact'),
   },

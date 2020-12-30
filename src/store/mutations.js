@@ -5,4 +5,7 @@ export const Mutations = {
   SET_USER_INFO: (state, userInfo) => {
     state.userInfo = userInfo;
   },
+  SET_MODAL_STATUS: (state, modalInfo) => {
+    state.modals[modalInfo.modalName] = modalInfo.modalStatus;
+  },
 };

@@ -1,20 +1,23 @@
 <template>
   <header class="header">
     <nav class="nav container">
-      <div class="nav-brand">Nav</div>
+      <div class="nav-left">
+        <img class="nav-brand" src="~@/assets/logo.png" alt="logo" />
+        <div class="nav-page">{{ routeName }}</div>
+      </div>
+
       <ul class="nav-list">
-        <li>
-          <router-link class="nav-link" :to="{ path: routes[0].path }">{{
-            $t('context.menu.home')
+        <li v-for="route in routes" :key="`${route.key}-link`">
+          <router-link class="nav-link" :to="{ path: route.path }">{{
+            $t(`context.menu.${route.key}`)
           }}</router-link>
         </li>
-        <li>
-          <router-link class="nav-link" :to="{ path: routes[1].path }">{{
-            $t('context.menu.contact')
-          }}</router-link>
-        </li>
-        <li class="form-select">
-          <select v-model="$i18n.locale" @change="changeLanguage" name="langs">
+        <li class="form-select lang">
+          <select
+            v-model="$i18n.locale"
+            @change="changeLanguage"
+            class="form-control"
+          >
             <option
               v-for="(lang, i) in langs"
               :key="`Lang-${i}`"
@@ -23,11 +26,11 @@
             >
           </select>
         </li>
-        <div v-if="!getUserInfo" @click="openLogin" class="login">
-          Login
+        <div v-if="!getUserInfo.password" @click="openLogin" class="login">
+          {{ $t(`context.login.login`) }}
         </div>
-        <div v-else>
-          Logout
+        <div v-else @click="logout">
+          {{ $t(`context.login.logout`) }}
         </div>
       </ul>
     </nav>
@@ -37,6 +40,12 @@
 <script>
 import { routes } from '@/router/routes';
 import { mapGetters } from 'vuex';
+
+const initUser = {
+  name: '',
+  email: '',
+  password: '',
+};
 
 export default {
   name: 'Header',
@@ -50,10 +59,25 @@ export default {
     changeLanguage() {
       this.$store.dispatch('setLanguage', this.$i18n.locale);
     },
-    openLogin() {},
+    openLogin() {
+      this.$store.dispatch('setModalStatus', {
+        modalName: 'loginModal',
+        modalStatus: true,
+      });
+    },
+    logout() {
+      this.$store.dispatch('setUserInfo', initUser);
+    },
   },
   computed: {
     ...mapGetters(['getUserInfo']),
+    routeName() {
+      return this.$t(
+        `context.menu.${
+          this.$route.name === 'home' ? 'name' : this.$route.name
+        }`
+      );
+    },
   },
 };
 </script>
@@ -67,12 +91,28 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .nav-list {
+  &-left,
+  &-list {
     display: flex;
+    align-items: center;
   }
-  .nav-link {
+  &-link {
     display: block;
     padding: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: palette-color('blue');
+    transition: all 0.3s ease;
+    &:hover {
+      color: palette-color('green');
+    }
+  }
+  &-brand {
+    width: 65px;
+    margin-right: 20px;
+  }
+  &-page {
+    color: palette-color('blue');
   }
 }
 </style>

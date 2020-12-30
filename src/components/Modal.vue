@@ -1,19 +1,14 @@
 <template>
-  <div class="modal-wrapper force-to-close" @click="closeModal">
+  <div>
     <div class="modal-content">
-      <div >
-        <a class="modal-close force-to-close" @click="closeModal">
-      kapat
-        </a>
-        <div v-if="title" >{{ title }}</div>
-      </div>
+      <div v-if="title">{{ title }}</div>
       <div class="modal-content-wrapper modal-content-center">
         <div>
           <slot></slot>
         </div>
       </div>
- 
     </div>
+    <div class="modal-backdrop force-to-close" @click="closeModal"></div>
   </div>
 </template>
 <script>
@@ -26,9 +21,7 @@ export default {
     },
   },
   data() {
-    return {
- 
-    };
+    return {};
   },
   created() {
     document.body.style.overflow = 'hidden';
@@ -44,37 +37,20 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.modal-header {
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  display: flex;
-  width: 100%;
-}
 .modal {
-  &-wrapper {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    z-index: 40;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-    background-color: rgba(0, 0, 0, 0.7);
-  }
   &-content {
-    width: 650px;
+    position: fixed;
+    width: 40vw;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
     overflow: hidden; // Alt radius gorunmemesi durumu icin
     margin: auto;
-    z-index: 1;
+    z-index: 41;
     border-radius: 4px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    word-break: break-word;
+    background: #fff;
+    padding: 30px;
 
     &-text {
       &-center {
@@ -85,21 +61,21 @@ export default {
       display: block;
       max-height: 60vh;
       overflow-y: auto;
+      position: relative;
 
       &-nospace {
         padding: 0 !important;
       }
     }
   }
-  &-close {
-    position: absolute;
-    cursor: pointer;
-    right: 20px;
-    top: 20px;
-  }
-  &-button-wrapper {
-    display: flex;
-    padding: 2px;
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
   }
 }
 </style>
