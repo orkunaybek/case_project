@@ -1,15 +1,21 @@
 $palette-font-sizes: (
   'font-size-1': 14px,
   'font-size-2': 18px,
-  'font-size-3': 35px,
+  'font-size-3': 30px,
 );
 
 $palette-colors: (
   'green': #41b883,
   'blue': #34495e,
+  'red': #ff5b84,
+  'gray': rgba(0, 0, 0, 0.03),
 );
 
 $main-shadow: rgba(0, 0, 0, 0.05) 0 1px 5px;
+$secondary-shadow: rgba(0, 0, 0, 0.1) 0 2px 7px;
+$main-radius: 4px;
+
+//functions
 
 @function palette-font-size($key) {
   @return map-get($palette-font-sizes, $key);

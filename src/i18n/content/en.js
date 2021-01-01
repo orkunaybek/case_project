@@ -12,6 +12,10 @@ export default {
       email: 'E-mail',
       password: 'Password',
     },
+    home: {
+      content:
+        'Application home page dummy content. Application home page dummy content. Application home page dummy content. Application home page dummy content Application home page dummy content',
+    },
     contact: {
       name: 'Name',
       email: 'E-mail',

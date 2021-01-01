@@ -1,21 +1,24 @@
 <template>
-  <Modal
-    v-if="showModal"
-    :title="$t(`context.login.login`)"
-    @closed="closeModal"
-  >
-    <div>
-      <div class="form-select lang">
-        <select
-          v-model="$i18n.locale"
-          @change="changeLanguage"
-          class="form-control"
-        >
-          <option v-for="(lang, i) in langs" :key="`Lang-${i}`" :value="lang">{{
-            lang
-          }}</option>
-        </select>
+  <Modal v-if="showModal" @closed="closeModal">
+    <div class="login-modal">
+      <div class="login-title">
+        <p>{{ $t(`context.login.login`) }}</p>
+        <div class="form-select lang">
+          <select
+            v-model="$i18n.locale"
+            @change="changeLanguage"
+            class="form-control"
+          >
+            <option
+              v-for="(lang, i) in langs"
+              :key="`Lang-${i}`"
+              :value="lang"
+              >{{ lang }}</option
+            >
+          </select>
+        </div>
       </div>
+
       <form @submit="saveUser">
         <input
           v-model="user.name"
@@ -43,7 +46,7 @@
   </Modal>
 </template>
 <script>
-import Modal from '@/components/Modal';
+import Modal from '@/components/CommonElements/Modal';
 import { mapGetters } from 'vuex';
 
 const initUser = {
@@ -90,4 +93,20 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.login-modal {
+  .login-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .form-control {
+    width: 100%;
+  }
+  .btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+</style>

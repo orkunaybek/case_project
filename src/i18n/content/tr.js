@@ -12,6 +12,10 @@ export default {
       email: 'E-posta',
       password: 'Şifre',
     },
+    home: {
+      content:
+        'Uygulama anasayfa dummy içerik. Uygulama anasayfa dummy içerik. Uygulama anasayfa dummy içerik. Uygulama anasayfa dummy içerik Uygulama anasayfa dummy içerik',
+    },
     contact: {
       name: 'İsim',
       email: 'E-posta',
