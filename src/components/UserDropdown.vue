@@ -53,7 +53,7 @@ export default {
   }
   &-menu {
     position: absolute;
-    top: calc(100% + $gutter);
+    top: calc(100% + 10px);
     right: 0;
     padding: $gutter $gutter * 2;
     background: #fff;
