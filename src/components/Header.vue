@@ -1,6 +1,6 @@
 <template>
-  <header class="header">
-    <nav class="nav container">
+  <div class="header">
+    <div class="nav container">
       <div class="nav-left">
         <img class="nav-brand" src="~@/assets/logo.png" alt="logo" />
         <div class="nav-page">{{ routeName }}</div>
@@ -55,8 +55,8 @@
       >
         <div class="line"></div>
       </a>
-    </nav>
-  </header>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -132,9 +132,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
-  padding: 20px 0;
+  padding: $gutter * 2 0;
   box-shadow: $main-shadow;
 }
 .nav {
@@ -148,19 +148,13 @@ export default {
   }
   &-link {
     display: block;
-    padding: 10px;
+    padding: $gutter;
     font-weight: 500;
     cursor: pointer;
-    text-decoration: none;
-    color: palette-color('blue');
-    transition: all 0.3s ease;
-    &:hover {
-      color: palette-color('green');
-    }
   }
   &-brand {
     width: 65px;
-    margin-right: 20px;
+    margin-right: $gutter * 2;
   }
   &-page {
     color: palette-color('blue');
@@ -183,7 +177,7 @@ export default {
     display: block;
     width: 100%;
     text-align: center;
-    padding: 20px;
+    padding: $gutter * 2;
 
     &:not(:last-child) {
       border-bottom: 1px solid palette-color('blue');

@@ -143,11 +143,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.contact-form {
+<style lang="scss" scoped>
+::v-deep .contact-form {
   width: 100%;
   max-width: 400px;
-  margin: 30px auto;
+  margin: $gutter * 3 auto;
   .form-control {
     width: 100%;
   }

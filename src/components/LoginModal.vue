@@ -99,7 +99,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: $gutter * 2;
   }
   .form-control {
     width: 100%;

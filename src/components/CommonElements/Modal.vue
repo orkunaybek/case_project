@@ -32,7 +32,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .modal {
   &-content {
     position: fixed;
@@ -46,7 +46,7 @@ export default {
     border-radius: 4px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     background: #fff;
-    padding: 30px;
+    padding: $gutter * 3;
 
     &-text {
       &-center {

@@ -53,9 +53,9 @@ export default {
   }
   &-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + $gutter);
     right: 0;
-    padding: 10px 20px;
+    padding: $gutter $gutter * 2;
     background: #fff;
     box-shadow: $secondary-shadow;
     max-width: 250px;
@@ -68,7 +68,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    padding: 10px 0;
+    padding: $gutter 0;
     &:hover {
       color: palette-color('green');
     }

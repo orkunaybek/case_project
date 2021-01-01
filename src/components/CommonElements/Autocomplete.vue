@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .autocomplete-wrapper {
   position: relative;
   .dropdown-menu {
@@ -97,11 +97,11 @@ export default {
     right: 0;
     max-height: 140px;
     overflow: auto;
-    padding: 10px;
+    padding: $gutter;
     background: #fff;
     box-shadow: $main-shadow;
     li {
-      padding: 5px 0;
+      padding: $gutter/2 0;
     }
   }
 }

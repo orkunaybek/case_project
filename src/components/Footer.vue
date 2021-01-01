@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    Footer
+    <p>Footer</p>
   </div>
 </template>
 
@@ -10,9 +10,12 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   width: 100%;
   height: 100px;
